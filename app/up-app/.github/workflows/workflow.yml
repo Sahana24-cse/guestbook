@@ -1,0 +1,23 @@
+name: Guestbook CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check application files
+        run: |
+          test -f app/index.html
+          test -f up-app/index.html
+
+      - name: Build completed
+        run: echo "Guestbook build successful"
