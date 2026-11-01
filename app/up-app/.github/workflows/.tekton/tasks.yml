@@ -1,0 +1,12 @@
+apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  name: guestbook-check
+spec:
+  steps:
+    - name: check-files
+      image: alpine
+      script: |
+        #!/bin/sh
+        echo "Checking Guestbook application"
+        echo "Guestbook task completed"
